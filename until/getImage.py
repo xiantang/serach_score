@@ -3,7 +3,7 @@ from PIL import Image
 import io
 import numpy as np
 
-url = "http://jw1.wucc.cn/CheckCode.aspx"
+url = "http://jw1.wzbc.edu.cn/CheckCode.aspx"
 
 
 def getImage():
