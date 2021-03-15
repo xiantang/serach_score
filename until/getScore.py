@@ -52,7 +52,7 @@ def _predict_image(images):
 def Login(studentId,password):
     while True:
         S=session()
-        images=S.get("http://jw1.wzbc.edu.cn/CheckCode.aspx").content
+        images=S.get("http://jw1.wucc.cn/CheckCode.aspx").content
         image_file = io.BytesIO(images)
         images = Image.open(image_file)
         # images.show()
@@ -69,7 +69,7 @@ def Login(studentId,password):
             'hidPdrs': '',
             'hidsc':  '',
         }
-        text=S.post("http://jw1.wzbc.edu.cn/default2.aspx",data=login_data).text
+        text=S.post("http://jw1.wucc.cn/default2.aspx",data=login_data).text
 
         username = re.findall('xhxm">(.*?)</span>', text)
 
@@ -82,10 +82,10 @@ def Login(studentId,password):
 
 
 def get_score(S, username,studentId):
-    new_referer = {'referer': 'http://jw1.wzbc.edu.cn/xs_main.aspx?xh=' + studentId[0]}
+    new_referer = {'referer': 'http://jw1.wucc.cn/xs_main.aspx?xh=' + studentId[0]}
     S.headers.update(new_referer)
     username = username[0].replace("同学", "")
-    url_history_grade = "http://jw1.wzbc.edu.cn/" + (
+    url_history_grade = "http://jw1.wucc.cn/" + (
         'xscjcx.aspx?'
         'xh={0}'
         '&xm={1}'
